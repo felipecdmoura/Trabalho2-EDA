@@ -1,13 +1,11 @@
 #ifndef STRUCTABP_H
 #define STRUCTABP_H
 
-#include <stdio.h>
-
-struct No
+typedef struct TNo
 {
     int Chave;
-    struct No *pEsq, *pDir;
+    struct TNo *pEsq, *pDir;
     int FatBal;
-};
+} No;
 
 #endif /* STRUCTABP_H */

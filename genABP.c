@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "headers\genABP.h"
-#include "headers\structABP.h"
+#include "genABP.h"
+#include "structABP.h"
 
-void genABP(FILE *arq, struct No *head)
+int genABP(FILE *arq, No *head)
 {
     int *nums;
     int cont = 0;
@@ -25,7 +25,9 @@ void genABP(FILE *arq, struct No *head)
             cont++;
             token = strtok(NULL, ";");
         }
-
     }
-    scanf(" %c", &stp);
+
+    return nums;
+    //scanf(" %c", &stp);
 }
+

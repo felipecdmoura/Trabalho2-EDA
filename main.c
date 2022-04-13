@@ -2,12 +2,39 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "headers\genABP.h"
-#include "headers\structABP.h"
+#include "genABP.h"
+#include "structABP.h"
 #include "genABP.c"
+#include "inserirABP.h"
+#include "inserirABP.c"
 
 FILE *arq;
-struct No *head = NULL;
+//No *head = NULL;
+
+/*No *inserirNums(No *head, int num){
+    if(head == NULL){
+        No *aux = malloc(sizeof(No));
+        aux->Chave = num;
+        aux->pEsq = NULL;
+        aux->pDir = NULL;
+        return aux;
+    }
+    else{
+        if(num < head->Chave)
+            inserirNums(head->pEsq, num);
+        else
+            inserirNums(head->pDir, num);
+    }
+    return head;
+}
+
+void imprimir(No *head){
+    if(head){
+        printf("%d ", head->Chave);
+        imprimir(head->pEsq);
+        imprimir(head->pDir);
+    }
+}*/
 
 void menu()
 {
@@ -22,21 +49,20 @@ void menu()
 
 int main()
 {
-    struct No *head = NULL;
     int opc;
     char stp, arqName[30];
-    
+    No *head = NULL;
 
     while (opc != 4)
     {
-        system("clear || cls");
+        //system("clear || cls");
         menu();
         scanf("%d", &opc);
 
         switch (opc)
         {
         case 1:
-            system("clear || cls");
+            //system("clear || cls");
 
             printf("Digite o nome do arquivo a ser usado:\n\n");
             scanf("%s", arqName);
@@ -45,13 +71,13 @@ int main()
 
             if (arq == NULL)
             {
-                printf("Erro ao abrir o arquivo! (Digite qualquer coisa para continuar)");
+                printf("Erro ao abrir o arquivo! (Digite qualquer coisa para continuar): ");
                 scanf(" %c", &stp);
                 break;
             }
-            
-            genABP(arq, head);
-            
+
+            head = inserirNums(head, 5);
+            imprimir(head);
             break;
         case 2:
             break;
