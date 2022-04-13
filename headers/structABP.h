@@ -8,6 +8,6 @@ struct No
     int Chave;
     struct No *pEsq, *pDir;
     int FatBal;
-} No;
+};
 
 #endif /* STRUCTABP_H */

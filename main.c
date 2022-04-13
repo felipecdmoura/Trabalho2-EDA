@@ -4,10 +4,11 @@
 
 #include "headers\genABP.h"
 #include "headers\structABP.h"
-
 #include "genABP.c"
+
 FILE *arq;
 struct No *head = NULL;
+
 void menu()
 {
 
@@ -21,9 +22,10 @@ void menu()
 
 int main()
 {
-
+    struct No *head = NULL;
     int opc;
     char stp, arqName[30];
+    
 
     while (opc != 4)
     {
@@ -47,8 +49,9 @@ int main()
                 scanf(" %c", &stp);
                 break;
             }
-
+            
             genABP(arq, head);
+            
             break;
         case 2:
             break;
