@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "genabp.h": "c",
+        "type_traits": "c"
+    }
+}
