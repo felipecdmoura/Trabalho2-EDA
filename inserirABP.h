@@ -7,5 +7,4 @@
 No *inserirNums(No *head, int num);
 void imprimir(No *head);
 
-
 #endif /* INSERIRABP_H */

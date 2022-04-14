@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "genabp.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "structabp.h": "c",
+        "string.h": "c"
     }
 }

@@ -2,16 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "genABP.h"
+#include "getNums.h"
 #include "structABP.h"
-//#include "inserirABP.h"
-//#include "inserirABP.c"
 
-int *genABP(FILE *arq, No *head)
+CsvNums getNums(FILE *arq, No *head)
 {
-    int *nums;
-    int cont = 0, valor;
-    char buffer[1024], stp;
+    CsvNums vet;
+    vet.qtdNum = 0;
+    int valor;
+    char buffer[1024];
 
     while (fgets(buffer, sizeof(buffer), arq))
     {
@@ -19,20 +18,15 @@ int *genABP(FILE *arq, No *head)
 
         token = strtok(buffer, ";");
 
-        nums = (int *)malloc(sizeof(token));
+        vet.nums = (int *)malloc(sizeof(token));
 
         while (token != NULL)
         {
-            nums[cont] = atoi(token);
-            cont++;
+            vet.nums[vet.qtdNum] = atoi(token);
+            vet.qtdNum++;
             token = strtok(NULL, ";");
         }
     }
 
-    return nums;
-
+    return vet;
 }
-
-
-
-

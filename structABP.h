@@ -8,4 +8,10 @@ typedef struct TNo
     int FatBal;
 } No;
 
+typedef struct CsvNums
+{
+    int *nums;
+    size_t qtdNum;
+} CsvNums;
+
 #endif /* STRUCTABP_H */

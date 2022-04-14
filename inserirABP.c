@@ -5,25 +5,30 @@
 #include "structABP.h"
 #include "inserirABP.h"
 
-No *inserirNums(No *head, int num){
-    if(head == NULL){
+No *inserirNums(No *node, int num)
+{
+    if (node == NULL)
+    {
         No *aux = malloc(sizeof(No));
         aux->Chave = num;
         aux->pEsq = NULL;
         aux->pDir = NULL;
         return aux;
     }
-    else{
-        if(num < head->Chave)
-        inserirNums(head->pEsq, num);
+    else
+    {
+        if (num < node->Chave)
+            node->pEsq = inserirNums(node->pEsq, num);
         else
-            inserirNums(head->pDir, num);
+            node->pDir = inserirNums(node->pDir, num);
     }
-    return head;
+    return node;
 }
 
-void imprimir(No *head){
-    if(head){
+void imprimir(No *head)
+{
+    if (head)
+    {
         printf("%d\n ", head->Chave);
         imprimir(head->pEsq);
         imprimir(head->pDir);

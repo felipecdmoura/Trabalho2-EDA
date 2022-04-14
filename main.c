@@ -2,21 +2,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-//bibliotecas dos outros arquivos
-#include "genABP.h"
+// bibliotecas dos outros arquivos
+#include "getNums.h"
 #include "structABP.h"
-#include "genABP.c"
+#include "getNums.c"
 #include "inserirABP.h"
 #include "inserirABP.c"
 
-//globais
-//FILE *arq;
-//No *head = NULL;
+// globais
+// FILE *arq;
+// No *head = NULL;
 
-int arvore(int valor){
+int arvore(int valor)
+{
     return valor;
 }
-//menu de opções
+// menu de opções
 void menu()
 {
 
@@ -28,13 +29,12 @@ void menu()
     printf("4) Sair\n");
 }
 
-//main
+// main
 int main()
 {
     FILE *arq;
-    int *vet;
+    CsvNums vet;
     int opc;
-    int i = 0, num;
     char stp, arqName[30];
     No *head = NULL;
 
@@ -47,7 +47,7 @@ int main()
         switch (opc)
         {
         case 1:
-            //system("clear || cls");
+            system("clear || cls");
 
             printf("Digite o nome do arquivo a ser usado:\n\n");
             scanf("%s", arqName);
@@ -56,40 +56,49 @@ int main()
 
             if (arq == NULL)
             {
-                printf("Erro ao abrir o arquivo! (Digite qualquer coisa para continuar): ");
-                scanf(" %c", &stp);
+                system("clear || cls");
+                printf("Erro ao abrir o arquivo!\n\n");
+                system("pause");
                 break;
             }
 
+            vet = getNums(arq, head);
 
-            vet = genABP(arq, head);
+            fclose(arq);
 
-            for (i = 0; i < 17; i++)
+            for (size_t i = 0; i < vet.qtdNum; i++)
             {
-                num = arvore(vet[10]);
-                head = inserirNums(head, num);
+                // num = arvore(vet[10]);
+                head = inserirNums(head, vet.nums[i]);
             }
-            head = inserirNums(head, num);
+
+            system("pause");
             break;
         case 2:
+
+            printf("%d\n", head->Chave);
+            printf("%d\n", head->pDir->Chave);
+            printf("%d\n", head->pEsq->Chave);
+
             break;
         case 3:
             imprimir(head);
             break;
         case 4:
+
             free(head);
+            free(vet.nums);
             break;
         default:
-            //system("clear || cls");
+            // system("clear || cls");
 
-            if(opc != 4){
+            if (opc != 4)
+            {
                 printf("opcao invalida");
             }
             break;
         }
-    }while(opc != 4);
+    } while (opc != 4);
 
-
-    fclose(arq);
     return 0;
 }
