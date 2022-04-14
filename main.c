@@ -2,40 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+//bibliotecas dos outros arquivos
 #include "genABP.h"
 #include "structABP.h"
 #include "genABP.c"
-#include "inserirABP.h"
-#include "inserirABP.c"
+//#include "inserirABP.h"
+//#include "inserirABP.c"
 
+//globais
 FILE *arq;
 //No *head = NULL;
 
-/*No *inserirNums(No *head, int num){
-    if(head == NULL){
-        No *aux = malloc(sizeof(No));
-        aux->Chave = num;
-        aux->pEsq = NULL;
-        aux->pDir = NULL;
-        return aux;
-    }
-    else{
-        if(num < head->Chave)
-            inserirNums(head->pEsq, num);
-        else
-            inserirNums(head->pDir, num);
-    }
-    return head;
-}
-
-void imprimir(No *head){
-    if(head){
-        printf("%d ", head->Chave);
-        imprimir(head->pEsq);
-        imprimir(head->pDir);
-    }
-}*/
-
+//menu de opções
 void menu()
 {
 
@@ -47,9 +25,11 @@ void menu()
     printf("4) Sair\n");
 }
 
+//main
 int main()
 {
     int opc;
+    int i = 0;
     char stp, arqName[30];
     No *head = NULL;
 
@@ -62,7 +42,7 @@ int main()
         switch (opc)
         {
         case 1:
-            //system("clear || cls");
+            system("clear || cls");
 
             printf("Digite o nome do arquivo a ser usado:\n\n");
             scanf("%s", arqName);
@@ -75,15 +55,15 @@ int main()
                 scanf(" %c", &stp);
                 break;
             }
-
-            head = inserirNums(head, 5);
-            imprimir(head);
+            genABP(arq, head);
             break;
         case 2:
             break;
         case 3:
+            imprimir(head);
             break;
         case 4:
+            free(head);
             break;
         default:
             system("clear || cls");
@@ -93,6 +73,6 @@ int main()
             break;
         }
     }
-
+    fclose(arq);
     return 0;
 }

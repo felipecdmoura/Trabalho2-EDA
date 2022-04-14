@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "genABP.h"
 #include "structABP.h"
 
 No *inserirNums(No *head, int num){
@@ -15,7 +14,7 @@ No *inserirNums(No *head, int num){
     }
     else{
         if(num < head->Chave)
-            inserirNums(head->pEsq, num);
+        inserirNums(head->pEsq, num);
         else
             inserirNums(head->pDir, num);
     }
@@ -24,7 +23,7 @@ No *inserirNums(No *head, int num){
 
 void imprimir(No *head){
     if(head){
-        printf("%d ", head->Chave);
+        printf("%d\n ", head->Chave);
         imprimir(head->pEsq);
         imprimir(head->pDir);
     }
