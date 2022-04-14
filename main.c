@@ -6,13 +6,16 @@
 #include "genABP.h"
 #include "structABP.h"
 #include "genABP.c"
-//#include "inserirABP.h"
-//#include "inserirABP.c"
+#include "inserirABP.h"
+#include "inserirABP.c"
 
 //globais
-FILE *arq;
+//FILE *arq;
 //No *head = NULL;
 
+int arvore(int valor){
+    return valor;
+}
 //menu de opções
 void menu()
 {
@@ -28,21 +31,23 @@ void menu()
 //main
 int main()
 {
+    FILE *arq;
+    int *vet;
     int opc;
-    int i = 0;
+    int i = 0, num;
     char stp, arqName[30];
     No *head = NULL;
 
-    while (opc != 4)
+    do
     {
-        //system("clear || cls");
+        system("clear || cls");
         menu();
         scanf("%d", &opc);
 
         switch (opc)
         {
         case 1:
-            system("clear || cls");
+            //system("clear || cls");
 
             printf("Digite o nome do arquivo a ser usado:\n\n");
             scanf("%s", arqName);
@@ -55,7 +60,16 @@ int main()
                 scanf(" %c", &stp);
                 break;
             }
-            genABP(arq, head);
+
+
+            vet = genABP(arq, head);
+
+            for (i = 0; i < 17; i++)
+            {
+                num = arvore(vet[10]);
+                head = inserirNums(head, num);
+            }
+            head = inserirNums(head, num);
             break;
         case 2:
             break;
@@ -66,13 +80,16 @@ int main()
             free(head);
             break;
         default:
-            system("clear || cls");
+            //system("clear || cls");
 
-            printf("Opcao invalida! (Digite qualquer tecla para voltar)\n");
-            scanf(" %c", &stp);
+            if(opc != 4){
+                printf("opcao invalida");
+            }
             break;
         }
-    }
+    }while(opc != 4);
+
+
     fclose(arq);
     return 0;
 }

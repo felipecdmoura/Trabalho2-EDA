@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "structABP.h"
+#include "inserirABP.h"
 
 No *inserirNums(No *head, int num){
     if(head == NULL){
