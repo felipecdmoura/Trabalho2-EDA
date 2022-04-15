@@ -8,15 +8,14 @@
 #include "getNums.c"
 #include "inserirABP.h"
 #include "inserirABP.c"
-
-// globais
-// FILE *arq;
-// No *head = NULL;
+#include "fatBal.c"
+#include "fatBal.h"
 
 int arvore(int valor)
 {
     return valor;
 }
+
 // menu de opções
 void menu()
 {
@@ -36,8 +35,7 @@ int main()
     CsvNums vet;
     int opc = 0;
     char stp, arqName[30];
-    No *head = NULL;   
-    No *aux = NULL;   
+    No *head = NULL;    
     int fatbal = 0;
     int auxEsq = 0;
     int auxDir = 0;
@@ -72,17 +70,15 @@ int main()
                 for (size_t i = 0; i < vet.qtdNum; i++)
                 {
                     head = inserirNums(head, vet.nums[i]);
-                    aux = inserirNums(aux, vet.nums[i]);
                 }
             
                 system("pause");
                 break;
             case 2:
 
-                head = calculaFatBal(head, vet, aux, auxEsq, auxDir);
+                calcaulaFatBal(head);
 
                 system("pause");
-                printf("%d\n", head->FatBal);
 
                 break;
             case 3:
