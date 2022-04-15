@@ -37,8 +37,8 @@ int main()
     int opc = 0;
     char stp, arqName[30];
     No *head = NULL;   
+    No *aux = NULL;   
     int fatbal = 0;
-    No *aux = NULL; 
     int auxEsq = 0;
     int auxDir = 0;
 
@@ -72,19 +72,17 @@ int main()
                 for (size_t i = 0; i < vet.qtdNum; i++)
                 {
                     head = inserirNums(head, vet.nums[i]);
-                    aux = inserirNums(head, vet.nums[i]);
+                    aux = inserirNums(aux, vet.nums[i]);
                 }
             
                 system("pause");
                 break;
             case 2:
 
-                head = buscaNode(head, vet, aux, auxEsq, auxDir);
+                head = calculaFatBal(head, vet, aux, auxEsq, auxDir);
 
                 system("pause");
-                printf("%d\n", aux->Chave);
-                // printf("%d\n", aux->pDir->Chave);
-                printf("%d\n", aux->pEsq->Chave);
+                printf("%d\n", head->FatBal);
 
                 break;
             case 3:

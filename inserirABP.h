@@ -5,8 +5,8 @@
 #include "structABP.h"
 
 No *inserirNums(No *head, int num);
-No *buscaNode(No *node, CsvNums vet, No *aux, int auxEsq, int auxDir);
-No *calculaFatBal(No *node, int num, No *aux, int auxEsq, int auxDir);
+No *buscaNode(No *node, int num);
+No *calculaFatBal(No *node, CsvNums vet, No *aux, int auxEsq, int auxDir);
 int fatBalEsq(No *aux, int auxEsq);
 int fatBalDir(No *aux, int auxDir);
 void imprimir(No *head);

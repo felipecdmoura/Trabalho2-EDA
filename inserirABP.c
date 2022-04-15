@@ -25,31 +25,39 @@ No *inserirNums(No *node, int num)
     return node;
 }
 
-No *buscaNode(No *node, CsvNums vet, No *aux, int auxEsq, int auxDir)
+No *buscaNode(No *node, int num)
 {
-    for (size_t i = 0; i < vet.qtdNum; i++)
-    {
-        if(node != NULL){
-            if (node->Chave = vet.nums[i]) {
-                node = calculaFatBal(node, vet.nums[i], aux, auxEsq, auxDir);
+    if(node != NULL){
+        if (node->Chave == num) {
+            return node;
+        } else {
+            if (num > node->Chave) {
+                return buscaNode(node->pDir, num);
             } else {
-                if (vet.nums[i] > node->Chave) {
-                    return buscaNode(node->pDir, vet, aux->pDir, auxEsq, auxDir);
-                } else {
-                    return buscaNode(node->pEsq, vet, aux->pEsq, auxEsq, auxDir);
-                }
+                return buscaNode(node->pEsq, num);
             }
         }
     }
     return node;
 }
 
-No *calculaFatBal(No *node, int num, No *aux, int auxEsq, int auxDir)
+No *calculaFatBal(No *node, CsvNums vet, No *aux, int auxEsq, int auxDir)
 {
-    auxEsq = fatBalEsq(aux->pEsq, auxEsq);
-    auxDir = fatBalEsq(aux->pDir, auxDir);
+    for (size_t i = 0; i < vet.qtdNum; i++) {
+        node = buscaNode(node, vet.nums[i]);
+        if (node != NULL) {
+            aux = node;
+        
+            auxEsq = fatBalEsq(aux->pEsq, auxEsq);
+            auxDir = fatBalDir(aux->pDir, auxDir);         
 
-    node->FatBal = auxEsq + auxDir;
+            node->FatBal = auxEsq + auxDir;
+
+            auxEsq = 0;
+            auxDir = 0;
+        }
+    }
+
     return node;
 }
 
