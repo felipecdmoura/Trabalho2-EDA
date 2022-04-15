@@ -17,9 +17,9 @@ No *inserirNums(No *node, int num)
     }
     else
     {
-        if (num < node->Chave)
+        if (num < node->Chave) 
             node->pEsq = inserirNums(node->pEsq, num);
-        else
+        else 
             node->pDir = inserirNums(node->pDir, num);
     }
     return node;
