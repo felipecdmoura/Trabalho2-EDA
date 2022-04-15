@@ -36,8 +36,11 @@ int main()
     CsvNums vet;
     int opc = 0;
     char stp, arqName[30];
-    No *head = NULL;
-
+    No *head = NULL;   
+    int fatbal = 0;
+    No *aux = NULL; 
+    int auxEsq = 0;
+    int auxDir = 0;
 
     while(opc != 4)
     {
@@ -69,15 +72,19 @@ int main()
                 for (size_t i = 0; i < vet.qtdNum; i++)
                 {
                     head = inserirNums(head, vet.nums[i]);
+                    aux = inserirNums(head, vet.nums[i]);
                 }
-
+            
                 system("pause");
                 break;
             case 2:
 
-                printf("%d\n", head->Chave);
-                printf("%d\n", head->pDir->Chave);
-                printf("%d\n", head->pEsq->Chave);
+                head = buscaNode(head, vet, aux, auxEsq, auxDir);
+
+                system("pause");
+                printf("%d\n", aux->Chave);
+                // printf("%d\n", aux->pDir->Chave);
+                printf("%d\n", aux->pEsq->Chave);
 
                 break;
             case 3:
