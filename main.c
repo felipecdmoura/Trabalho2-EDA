@@ -20,11 +20,14 @@ int arvore(int valor)
 void menu()
 {
 
-    printf("---Menu---\n\n");
+    printf("--------------------------------\n");
+    printf("---------------MENU-------------\n");
+    printf("--------------------------------\n");
+
     printf("Selecione uma das opcoes abaixo: \n");
     printf("1) Gerar ABP\n");
-    printf("2) Calcula Fator de Balanceamento\n");
-    printf("3) Imprime ABP\n");
+    printf("2) Calcular o Fator de balanceamento para cada nó\n");
+    printf("3) Imprimir a ABP\n");
     printf("4) Sair\n");
 }
 
