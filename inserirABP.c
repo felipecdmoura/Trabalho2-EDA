@@ -29,8 +29,9 @@ void imprimir(No *head)
 {
     if (head)
     {
-        printf("%d\n ", head->Chave);
         imprimir(head->pEsq);
+        printf("%d\n ", head->Chave);
+        printf("%d\n",head->FaBal);
         imprimir(head->pDir);
     }
 }
