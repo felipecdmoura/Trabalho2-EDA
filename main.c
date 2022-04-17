@@ -11,11 +11,6 @@
 #include "fatBal.c"
 #include "fatBal.h"
 
-int arvore(int valor)
-{
-    return valor;
-}
-
 // menu de opções
 void menu()
 {
