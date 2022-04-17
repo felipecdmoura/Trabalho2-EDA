@@ -31,7 +31,7 @@ void imprimir(No *head)
     {
         imprimir(head->pEsq);
         printf("%d\n ", head->Chave);
-        printf("%d\n",head->FaBal);
+        printf("%d\n",head->FatBal);
         imprimir(head->pDir);
     }
 }
