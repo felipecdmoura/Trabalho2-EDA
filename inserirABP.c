@@ -30,8 +30,8 @@ void imprimir(No *head)
     if (head)
     {
         imprimir(head->pEsq);
-        printf("%d\n ", head->Chave);
-        printf("%d\n",head->FatBal);
+        printf("%Chave: d\n ", head->Chave);
+        printf("FatBal: %d\n",head->FatBal);
         imprimir(head->pDir);
     }
 }
