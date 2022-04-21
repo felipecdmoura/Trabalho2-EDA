@@ -4,34 +4,38 @@
 
 #include "fatBal.h"
 
-void calcaulaFatBal(No *node) {
+void calculaFatBal(No *node)
+{
 
-    if(node == NULL) {
+    if (node == NULL)
+    {
         return;
-    }         
-    if(node != NULL){
+    }
+    if (node != NULL)
+    {
 
-        int altEsq = calcaulaAltura(node->pEsq);
-        int altDir = calcaulaAltura(node->pDir);
+        int altEsq = calculaAltura(node->pEsq);
+        int altDir = calculaAltura(node->pDir);
         int balancoFator = altDir - altEsq;
-        
+
         node->FatBal = balancoFator;
 
-        calcaulaFatBal(node->pDir);   
-        calcaulaFatBal(node->pEsq);
+        calculaFatBal(node->pDir);
+        calculaFatBal(node->pEsq);
     }
 }
 
-int calcaulaAltura(No *node) {
+int calculaAltura(No *node)
+{
 
-  if(node == NULL)
-      return 0;
+    if (node == NULL)
+        return 0;
 
-  int altEsq = calcaulaAltura(node->pEsq); // endereco do no da esquerda
-  int altDir = calcaulaAltura(node->pDir); // endereco do no da direita
-  
-  if(altEsq > altDir) 
-      return altEsq + 1;
-  else 
-      return altDir + 1;
+    int altEsq = calculaAltura(node->pEsq); // endereco do no da esquerda
+    int altDir = calculaAltura(node->pDir); // endereco do no da direita
+
+    if (altEsq > altDir)
+        return altEsq + 1;
+    else
+        return altDir + 1;
 }
