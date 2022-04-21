@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "structABP.h"
 
-void calcaulaFatBal(No *node);
-int calcaulaAltura(No *node);
+void calculaFatBal(No *node);
+int calculaAltura(No *node);
 
 #endif /* FATBAL_H */

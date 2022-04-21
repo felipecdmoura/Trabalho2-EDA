@@ -17,9 +17,9 @@ No *inserirNums(No *node, int num)
     }
     else
     {
-        if (num < node->Chave) 
+        if (num < node->Chave)
             node->pEsq = inserirNums(node->pEsq, num);
-        else 
+        else
             node->pDir = inserirNums(node->pDir, num);
     }
     return node;
@@ -30,8 +30,8 @@ void imprimir(No *head)
     if (head)
     {
         imprimir(head->pEsq);
-        printf("%Chave: d\n ", head->Chave);
-        printf("FatBal: %d\n",head->FatBal);
+        printf("Chave: %d\n ", head->Chave);
+        printf("FatBal: %d\n\n", head->FatBal);
         imprimir(head->pDir);
     }
 }
